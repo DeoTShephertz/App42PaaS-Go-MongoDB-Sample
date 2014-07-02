@@ -20,7 +20,7 @@ type User struct {
 }
 
 func setupDB() *mgo.Session{
-	db, err := mgo.Dial("localhost")
+	db, err := mgo.Dial("USER:PASSWORD@VM IP:VM PORT/DATABASE NAME")
 	PanicIf(err)
 	return db
 }
