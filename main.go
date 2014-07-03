@@ -20,7 +20,7 @@ type User struct {
 }
 
 func setupDB() *mgo.Session{
-	db, err := mgo.Dial("USER:PASSWORD@VM IP:VM PORT/DATABASE NAME")
+	db, err := mgo.Dial("a5ot5f07c6244uek:akk1f9ccxhouyhs14hnjmcuxs2wmz1x7@192.168.3.241:50171/demo_db")
 	PanicIf(err)
 	return db
 }
@@ -33,7 +33,7 @@ func PanicIf(err error) {
 
 func indexHandler(w http.ResponseWriter, r *http.Request ) {
 	fmt.Println("In indexHandler")
-	coll := db.DB("DATABASE NAME").C("user")
+	coll := db.DB("demo_db").C("user")
 	fmt.Println("Collection: ", coll)
 
 	users := []User{}
@@ -59,7 +59,7 @@ func saveHandler (w http.ResponseWriter, r *http.Request) {
 	email := r.FormValue("email")
 	description := r.FormValue("description")
 
-	coll := db.DB("DATABASE NAME").C("user")
+	coll := db.DB("demo_db").C("user")
 	fmt.Println("Collection: ", coll)
 
 	err := coll.Insert(&User{name, email, description})
