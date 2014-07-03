@@ -33,7 +33,7 @@ func PanicIf(err error) {
 
 func indexHandler(w http.ResponseWriter, r *http.Request ) {
 	fmt.Println("In indexHandler")
-	coll := db.DB("Go-Mongo").C("user")
+	coll := db.DB("DATABASE NAME").C("user")
 	fmt.Println("Collection: ", coll)
 
 	users := []User{}
